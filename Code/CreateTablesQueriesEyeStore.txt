@@ -1,0 +1,86 @@
+﻿
+CREATE TABLE [dbo].[Customer_Orders] (
+    [Id]           INT            IDENTITY (1, 1) NOT NULL,
+    [itemId]       INT            NULL,
+    [quantity]     INT            NULL,
+    [total]        INT            NULL,
+    [date]         DATE           NULL,
+    [status]       NVARCHAR (100) NULL,
+    [CustomerId]   NVARCHAR (50)  NULL,
+    [DeliveryDate] DATE           NULL,
+    [DeliveryTime] TIME (7)       NULL,
+    [month]        NVARCHAR (50)  NULL,
+    [year]         NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[FeedBack] (
+    [Id]         INT            IDENTITY (1, 1) NOT NULL,
+    [customerId] NVARCHAR (50)  NULL,
+    [ItemId]     NVARCHAR (50)  NULL,
+    [Message]    NVARCHAR (MAX) NULL,
+    [Date]       NCHAR (10)     NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+CREATE TABLE [dbo].[Items] (
+    [itemId]     INT            IDENTITY (1, 1) NOT NULL,
+    [title]      NVARCHAR (100) NULL,
+    [category]   NVARCHAR (100) NULL,
+    [unitPrice]  INT            NULL,
+    [quantity]   INT            NULL,
+    [ManDate]    NVARCHAR (50)  NULL,
+    [ExpiryDate] NVARCHAR (50)  NULL,
+    [image]      NVARCHAR (100) NULL,
+    [Remarks]    NVARCHAR (150) NULL,
+    PRIMARY KEY CLUSTERED ([itemId] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[PublishSupliedItems] (
+    [Id]       INT            IDENTITY (1, 1) NOT NULL,
+    [category] NVARCHAR (MAX) NULL,
+    [title]   NVARCHAR(150)            NULL,
+    [quantity] INT            NULL,
+    [amount]   INT            NULL,
+    [Discription]   NVARCHAR (50)  NULL,
+    [date]     DATE           NULL,
+    [itemType] NVARCHAR (50)  NULL,
+    [userid]   NVARCHAR (50)  NULL,
+    [status] NCHAR(10) NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Users] (
+    [userid]      NVARCHAR (50)  NOT NULL,
+    [Password]    NVARCHAR (50)  NULL,
+    [Name]        NVARCHAR (50)  NULL,
+    [Address]     NVARCHAR (MAX) NULL,
+    [MobileNo]    NVARCHAR (50)  NULL,
+    [Email]       NVARCHAR (50)  NULL,
+    [SecQuestion] NVARCHAR (MAX) NULL,
+    [SecAnswer]   NVARCHAR (MAX) NULL,
+    [UserType]    NVARCHAR (50)  NULL,
+    [status]      NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([userid] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[Category] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Title]       NVARCHAR (150) NULL,
+    [Discription] NVARCHAR (MAX) NULL,
+    [Date]        DATE           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
